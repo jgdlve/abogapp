@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.usal.abogadosapp.negocio.controller.PanelExpedientesController">
+   <children>
+      <SplitPane dividerPositions="0.12814070351758794" layoutX="126.0" layoutY="81.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="15.0" text="Buscar por:" />
+                  <ComboBox fx:id="comboBuscar" layoutX="97.0" layoutY="10.0" prefWidth="150.0" />
+                  <TextField fx:id="txtBuscar" layoutX="267.0" layoutY="10.0" />
+                  <Button fx:id="btnBuscar" layoutX="458.0" layoutY="10.0" mnemonicParsing="false" onAction="#buscar" text="Buscar" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TableView fx:id="tablaExpedientes" layoutX="199.0" layoutY="72.0" prefHeight="343.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="numero" prefWidth="110.0" text="Nº Expediente" />
+                      <TableColumn fx:id="titulo" prefWidth="210.0" text="Titulo" />
+                        <TableColumn fx:id="actor" prefWidth="106.0" text="Actor" />
+                        <TableColumn fx:id="objeto" prefWidth="90.0" text="Objeto" />
+                        <TableColumn fx:id="fecha" prefWidth="81.0" text="Fecha" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
