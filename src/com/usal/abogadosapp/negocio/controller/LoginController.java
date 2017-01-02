@@ -55,10 +55,12 @@ public class LoginController extends MainController implements Initializable{
 //				alert.showAndWait();
 				actiontarget.setText("Usuario no existente");
 			}
-		} catch (SQLException e) {
+		} catch (SQLException e ) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}    
+			actiontarget.setText("Error en la conexion");
+		}  catch(NullPointerException ex){
+			actiontarget.setText("Error en la conexion");
+		}
     }
 
 	@Override

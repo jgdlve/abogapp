@@ -36,6 +36,11 @@ public class PanelPrincipalController extends MainController implements Initiali
         super.mainApp.mostrarVentanaInterna(Ventanas.PanelExpedientes);
     }
     
+    @FXML
+    private void abrirVentanaEstadoExpediente(ActionEvent event) {
+        super.mainApp.mostrarVentanaInterna(Ventanas.PanelEstadoExpediente);
+    }
+    
     
 
     

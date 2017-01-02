@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import com.usal.abogadosapp.negocio.dao.interfaces.ExpedienteInterface;
 import com.usal.abogadosapp.negocio.dto.Abogado;
 import com.usal.abogadosapp.negocio.dto.Expediente;
+import com.usal.abogadosapp.negocio.dto.Ventanas;
 import com.usal.abogadosapp.negocio.impl.ExpedienteImplementacionJDBC;
 
 import javafx.collections.FXCollections;
@@ -17,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -27,6 +29,8 @@ public class PanelExpedientesController extends MainController implements Initia
 	
 	private ObservableList<Expediente> listaExpedientes = FXCollections.observableArrayList();
 	
+	@FXML
+	private Text targetBuscar;
 	@FXML
 	private TableColumn<Expediente, String> numero;
     @FXML
@@ -53,6 +57,16 @@ public class PanelExpedientesController extends MainController implements Initia
 		comboBuscar.setValue("Nº Expediente");
 		comboBuscar.setItems(buscarList);
 		
+		tablaExpedientes.setRowFactory( tv -> {
+		    TableRow<Expediente> row = new TableRow<>();
+		    row.setOnMouseClicked(event -> {
+		        if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+		          mainApp.mostrarVentanaInterna(Ventanas.PanelEstadoExpediente);
+		        }
+		    });
+		    return row ;
+		});
+		
 	}
 	
 	@FXML
@@ -63,7 +77,7 @@ public class PanelExpedientesController extends MainController implements Initia
 			listaExpedientes.add(e);
 			this.cargarTabla();
 		}else{
-			System.out.println("no existe el expediente.");
+			targetBuscar.setText("no existe el expediente");
 		}
 	}
 	
@@ -79,5 +93,7 @@ public class PanelExpedientesController extends MainController implements Initia
 	private ObservableList<Expediente> getExpedientes() {
         return listaExpedientes;
     }
+	
+	
 
 }
