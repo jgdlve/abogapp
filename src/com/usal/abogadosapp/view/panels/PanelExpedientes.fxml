@@ -25,7 +25,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <TableView fx:id="tablaExpedientes" layoutX="199.0" layoutY="18.0" prefHeight="325.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="tablaExpedientes" layoutX="199.0" layoutY="18.0" onMouseClicked="#clickItem" prefHeight="325.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
                       <TableColumn fx:id="numero" prefWidth="110.0" text="Nº Expediente" />
                       <TableColumn fx:id="titulo" prefWidth="210.0" text="Titulo" />

@@ -44,10 +44,6 @@ public class PanelAbogadosController extends MainController implements Initializ
     private TextField txtCuit;
     @FXML
     private TextField txtNombre;
-    
-   
-    // Reference to the main application.
-    private Main main;
 
     public PanelAbogadosController() {
     	this.leer();
@@ -60,43 +56,24 @@ public class PanelAbogadosController extends MainController implements Initializ
     	listaAbogados.add(new Abogado(3,"20-32323232-5","Kevin", "de la Vega"));
 		
 	}
-
-	@FXML
-    private void initialize() {
-        // Initialize the person table with the two columns.
-        nombre.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
-        apellido.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
-        cuit.setCellValueFactory(cellData -> cellData.getValue().cuitProperty());
-        direccion.setCellValueFactory(cellData -> cellData.getValue().streetProperty());
-        telefono.setCellValueFactory(cellData -> cellData.getValue().telefonoProperty());
-        btnAgregar.setOnAction(this::btnAgregarAction);
-        btnModificar.setOnAction(this::btnModificarAction);
-        btnEliminar.setOnAction(this::btnEliminarAction);
-        txtCuit.setDisable(true);
-        txtNombre.setDisable(true);
-    }
-
-    public void setMain(Main mainApp) {
-        this.main = mainApp;
-    }
     
     public void cargarTabla(){
-    	// Add observable list data to the table
         tablaAbogados.setItems(this.getPersonData());
     }
     
+    @FXML
     private void btnAgregarAction(ActionEvent event) {
         // Button was clicked, do something...
     	System.out.println("se presiono el boton agregar");
         
     }
-    
+    @FXML
     private void btnModificarAction(ActionEvent event) {
         // Button was clicked, do something...
     	System.out.println("se presiono el boton modificar");
         
     }
-    
+    @FXML
     private void btnEliminarAction(ActionEvent event){
     	System.out.println("se presiono el boton eliminar");
     }
@@ -107,7 +84,16 @@ public class PanelAbogadosController extends MainController implements Initializ
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		
+		nombre.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
+        apellido.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
+        cuit.setCellValueFactory(cellData -> cellData.getValue().cuitProperty());
+        direccion.setCellValueFactory(cellData -> cellData.getValue().streetProperty());
+        telefono.setCellValueFactory(cellData -> cellData.getValue().telefonoProperty());
+        btnAgregar.setOnAction(this::btnAgregarAction);
+        btnModificar.setOnAction(this::btnModificarAction);
+        btnEliminar.setOnAction(this::btnEliminarAction);
+        txtCuit.setDisable(true);
+        txtNombre.setDisable(true);
 	}
 }

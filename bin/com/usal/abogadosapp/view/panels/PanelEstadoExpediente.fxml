@@ -1,48 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.usal.abogadosapp.negocio.controller.PanelPrincipalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.usal.abogadosapp.negocio.controller.PanelEstadoExpedienteController">
    <children>
-      <SplitPane dividerPositions="0.24247491638795987" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+      <SplitPane dividerPositions="0.2" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="50.0" prefWidth="598.0">
                <children>
-                  <Button layoutY="1.0" mnemonicParsing="false" prefHeight="95.0" prefWidth="70.0" text="OBJETO" />
-                  <Button layoutX="70.0" layoutY="1.0" mnemonicParsing="false" prefHeight="95.0" prefWidth="70.0" text="PARTES" />
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutY="96.0" mnemonicParsing="false" prefHeight="95.0" prefWidth="70.0" text="ETAPA PROCESAL" wrapText="true" />
-                  <Button layoutX="70.0" layoutY="96.0" mnemonicParsing="false" prefHeight="95.0" prefWidth="70.0" text="Button" />
+                  <Button fx:id="btnVolver" layoutX="525.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#actionVolver" text="Volver" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="10.0" />
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="319.0" prefWidth="399.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Accordion layoutX="61.0" prefHeight="506.0" prefWidth="399.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <panes>
-                        <TitledPane animated="false" prefHeight="100.0" prefWidth="202.0" text="CEDULA">
-                           <content>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-                           </content>
-                        </TitledPane>
-                        <TitledPane animated="false" text="OFICIO">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                           </content>
-                        </TitledPane>
-                        <TitledPane animated="false" prefHeight="82.0" prefWidth="202.0" text="RADICACION">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="200.0" />
-                           </content>
-                        </TitledPane>
-                     </panes>
-                  </Accordion>
+                  <SplitPane dividerPositions="0.29797979797979796" layoutX="199.0" layoutY="77.0" prefHeight="314.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="312.0" prefWidth="80.0" SplitPane.resizableWithParent="false" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                    </items>
+                  </SplitPane>
                </children>
             </AnchorPane>
-         </items>
+        </items>
       </SplitPane>
    </children>
 </AnchorPane>

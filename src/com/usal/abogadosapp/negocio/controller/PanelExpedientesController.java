@@ -3,13 +3,10 @@ package com.usal.abogadosapp.negocio.controller;
 import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
-
 import com.usal.abogadosapp.negocio.dao.interfaces.ExpedienteInterface;
-import com.usal.abogadosapp.negocio.dto.Abogado;
 import com.usal.abogadosapp.negocio.dto.Expediente;
 import com.usal.abogadosapp.negocio.dto.Ventanas;
 import com.usal.abogadosapp.negocio.impl.ExpedienteImplementacionJDBC;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,14 +15,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class PanelExpedientesController extends MainController implements Initializable{
-	
 	
 	private ObservableList<Expediente> listaExpedientes = FXCollections.observableArrayList();
 	
@@ -56,17 +53,15 @@ public class PanelExpedientesController extends MainController implements Initia
 	public void initialize(URL location, ResourceBundle resources) {
 		comboBuscar.setValue("Nº Expediente");
 		comboBuscar.setItems(buscarList);
-		
-		tablaExpedientes.setRowFactory( tv -> {
-		    TableRow<Expediente> row = new TableRow<>();
-		    row.setOnMouseClicked(event -> {
-		        if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
-		          mainApp.mostrarVentanaInterna(Ventanas.PanelEstadoExpediente);
-		        }
-		    });
-		    return row ;
-		});
-		
+	}
+	
+	@FXML
+	public void clickItem(MouseEvent event){
+		if (event.getClickCount() == 2) {
+			Stage stage = (Stage) txtBuscar.getScene().getWindow();
+	        stage.close();
+	        super.mainApp.mostrarVentanaInterna(Ventanas.PanelEstadoExpediente);
+		}
 	}
 	
 	@FXML

@@ -4,17 +4,17 @@ import java.io.IOException;
 
 import com.usal.abogadosapp.negocio.controller.LoginController;
 import com.usal.abogadosapp.negocio.controller.MainController;
-import com.usal.abogadosapp.negocio.controller.PanelAbogadosController;
 import com.usal.abogadosapp.negocio.controller.PanelPrincipalController;
 import com.usal.abogadosapp.negocio.dto.Ventanas;
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -75,6 +75,7 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource(Ventanas.VentanaPrincipal.getPath()));
             panelPrincipal = (BorderPane) loader.load();
+            
             PanelPrincipalController controllerPpal = loader.getController();
     		controllerPpal.setMainApp(this);
             // Show the scene containing the root layout.
@@ -92,17 +93,14 @@ public class Main extends Application {
         return ventanaPrincipal;
     }
 	
-//	public void close() {
-//		ventanaLogin.close();
-//    }
-	
 	public void mostrarVentanaInterna(Ventanas ventana) {
         if (!ventana.getIsopen()) {
             try {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource(ventana.getPath()));
                 AnchorPane contactABM = (AnchorPane) loader.load();
-
+                int minWidth = 900;
+                int minHeight = 600;
                 MainController controller = loader.getController();
                 controller.setMainApp(this);
 
@@ -110,12 +108,16 @@ public class Main extends Application {
                 internalStage.setTitle(ventana.getTitle());
                 internalStage.initModality(Modality.WINDOW_MODAL);
                 internalStage.initOwner(ventanaPrincipal);
+                internalStage.setMinWidth(minWidth);
+                internalStage.setMinHeight(minHeight);
+                
+                Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+                internalStage.setX((screenBounds.getWidth() - minWidth) / 2); 
+                internalStage.setY((screenBounds.getHeight() - minHeight) / 2); 
+                
                 Scene scene = new Scene(contactABM);
                 internalStage.setScene(scene);
                 internalStage.show();
-                
-                internalStage.setMinWidth(900);
-                internalStage.setMinHeight(600);
                 
                 ventana.setIsopen(true);
                 internalStage.setOnHidden((WindowEvent we) -> {

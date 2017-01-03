@@ -23,7 +23,7 @@ public class ExpedienteImplementacionJDBC implements ExpedienteInterface {
 		try {
 			
 			con = objCon.getConn();
-			String query ="SELECT * FROM expedientes WHERE numero=?";
+			String query ="SELECT * FROM expedientes WHERE UPPER(numero) LIKE UPPER(?)";
 			st =con.prepareStatement(query);
 			st.setString(1, num);
 			rs = st.executeQuery();	
